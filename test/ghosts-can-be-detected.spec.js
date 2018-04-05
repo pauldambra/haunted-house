@@ -1,4 +1,4 @@
-const ghostDetector = require('../ghostDetector.js')
+const ghostDetector = require('../src/ghostDetector.js')
 const chai = require('chai')
 chai.use(require('dirty-chai'))
 const expect = chai.expect

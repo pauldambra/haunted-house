@@ -5,7 +5,6 @@ module.exports = {
   detect: () => {
     const detectedValue = zeroToTen()
     return new Promise((resolve, reject) => {
-      const timeToDetect = zeroToTen()
       setTimeout(() => resolve(detectedValue), zeroToTen())
     })
   }
