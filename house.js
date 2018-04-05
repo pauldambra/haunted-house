@@ -8,6 +8,6 @@ module.exports = class House {
   }
 
   haunted () {
-    return this.isHaunted
+    return Promise.resolve(this.isHaunted)
   }
 }
