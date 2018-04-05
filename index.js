@@ -1,6 +1,8 @@
 const sensor = require('./randomSensor')
-const ghostDetector = require('./ghostDetector')
 const House = require('./house')
+
+const ghostDetector = require('./ghostDetector')
+                        .withSensor(sensor)
 
 console.log('Who ya gonna call?')
 
@@ -8,7 +10,6 @@ const ghostDetective = address => {
   console.log(`visiting house number ${address}`)
   
   ghostDetector
-    .withSensor(sensor)
     .runForHours(7)
     .then(detections => {
       new House(detections)
