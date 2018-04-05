@@ -4,6 +4,7 @@
   "description": "kata to convert promises to async/await",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "./node_modules/.bin/standard --fix && ./node_modules/.bin/mocha"
   },
   "author": "Paul D'Ambra",
