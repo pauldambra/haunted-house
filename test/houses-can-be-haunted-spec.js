@@ -3,16 +3,14 @@ const chai = require('chai')
 chai.use(require('dirty-chai'))
 const expect = chai.expect
 
-
 /**
-
 
     Promise.all(Array(10)
       .fill()
       .map(_ => ghostDetector.detect()))
       .then(ghostDetections => {
         console.log(ghostDetections)
-        
+
       })
       .catch(console.log)
 

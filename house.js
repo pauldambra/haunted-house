@@ -2,7 +2,7 @@
 module.exports = class House {
   constructor (ghostDetections) {
     this.isHaunted = ghostDetections
-          .some(millispooks => millispooks > 3)
+      .some(millispooks => millispooks > 3)
   }
 
   haunted () {
