@@ -11,7 +11,7 @@ describe('the random sensor', function () {
     )
       .then(xs => {
         xs.every(x => {
-          expect(x).to.be.within(0, 10)
+          expect(x).to.be.within(0, 10000)
         })
         done()
       })

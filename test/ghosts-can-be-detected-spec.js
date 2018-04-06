@@ -2,11 +2,11 @@ const chai = require('chai')
 chai.use(require('dirty-chai'))
 const expect = chai.expect
 
-const alwaysDetectThree = {
-  detect: () => (Promise.resolve(3))
+const alwaysDetectThreeThousand = {
+  detect: () => (Promise.resolve(3000))
 }
 
-const ghostDetector = require('../src/ghostDetector.js').withSensor(alwaysDetectThree)
+const ghostDetector = require('../src/ghostDetector.js').withSensor(alwaysDetectThreeThousand)
 
 describe('the ghost detector', function () {
   it('generates one spookiness unit for each "hour" it is running', function (done) {

@@ -1,3 +1,10 @@
+const Microscares = require('./Microscares')
+
+/**
+  The ghost detector uses the industry standard microscares detector
+  but must repost to humans in millispooks. detection and conversion are both
+  async
+**/
 
 module.exports = {
   withSensor: sensor => {
@@ -8,7 +15,10 @@ module.exports = {
             .fill()
             .map(_ => sensor.detect()))
             .then(ghostDetections => {
-              resolve(ghostDetections)
+              Promise.all(
+                ghostDetections.map(gd => new Microscares(gd).toMillispooks())
+              )
+                .then(resolve)
             })
             .catch(reject)
         })
