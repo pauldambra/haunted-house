@@ -1,7 +1,8 @@
-const House = require('../src/House.js')
 const chai = require('chai')
 chai.use(require('dirty-chai'))
 const expect = chai.expect
+
+const House = require('../src/House.js')
 
 describe('a house', function () {
   it('is haunted if the ghost detector ever detects more than eight spooky units', function (done) {
