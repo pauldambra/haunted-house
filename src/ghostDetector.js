@@ -1,4 +1,4 @@
-const Microscares = require('./Microscares')
+const µs = require('./microscares')
 
 /**
   The ghost detector uses the industry standard microscares detector
@@ -10,16 +10,16 @@ module.exports = {
   withSensor: sensor => {
     return {
       runForHours: hours => {
+        const eachHour = Array(hours).fill()
+
         return new Promise((resolve, reject) => {
-          Promise.all(Array(hours)
-            .fill()
-            .map(_ => sensor.detect()))
-            .then(ghostDetections => {
-              Promise.all(
-                ghostDetections.map(gd => new Microscares(gd).toMillispooks())
-              )
-                .then(resolve)
+          Promise.all(eachHour
+            .map(_ => {
+              return sensor.detect()
+                .then(µs.toMillispooks)
             })
+          )
+            .then(resolve)
             .catch(reject)
         })
       }
