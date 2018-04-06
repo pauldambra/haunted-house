@@ -14,7 +14,7 @@ describe('the ghost detector', function () {
       .runForHours(7)
       .then(spookyReadings => {
         expect(spookyReadings.length).to.eql(7)
-        spookyReadings.every(sr => expect(sr).to.eql(3))
+        spookyReadings.every(sr => expect(sr).to.eql(false))
         done()
       })
       .catch(done)

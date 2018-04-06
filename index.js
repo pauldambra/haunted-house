@@ -4,6 +4,11 @@ const House = require('./src/house')
 const ghostDetector = require('./src/ghostDetector')
   .withSensor(sensor)
 
+const reportResults = (isHaunted, address) => {
+  const result = isHaunted ? '' : 'not'
+  console.log(`after 7 hours I can tell you that house number ${address} is ${result} haunted`)
+}
+
 console.log('Who ya gonna call?')
 
 const ghostDetective = address => {
@@ -14,10 +19,7 @@ const ghostDetective = address => {
     .then(detections => {
       new House(detections)
         .haunted()
-        .then(x => {
-          const result = x ? '' : 'not'
-          console.log(`after 7 hours I can tell you that house number ${address} is ${result} haunted`)
-        })
+        .then(isHaunted => reportResults(isHaunted, address))
         .catch(console.log)
     })
 }

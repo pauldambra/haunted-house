@@ -5,8 +5,8 @@ const expect = chai.expect
 const House = require('../src/House.js')
 
 describe('a house', function () {
-  it('is haunted if the ghost detector ever detects more than eight spooky units', function (done) {
-    const house = new House([4, 4, 4, 9, 4])
+  it('is haunted if the ghost detector detects a ghost', function (done) {
+    const house = new House(true)
     house.haunted()
       .then(isHaunted => {
         expect(isHaunted).to.be.true()
@@ -15,8 +15,8 @@ describe('a house', function () {
       .catch(done)
   })
 
-  it('is not haunted if the ghost detector never detects more than three spooky units', function (done) {
-    const house = new House([[3, 3, 3, 3, 3, 3, 3, 3]])
+  it('is not haunted if the ghost detector never detects a ghost', function (done) {
+    const house = new House(false)
     house.haunted()
       .then(isHaunted => {
         expect(isHaunted).to.be.false()
